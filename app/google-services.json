@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "209221219198",
+    "project_id": "lethal-company-b589c",
+    "storage_bucket": "lethal-company-b589c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:209221219198:android:cc26cc8e6839a1d8c8b92f",
+        "android_client_info": {
+          "package_name": "com.example.lethalcompany"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA__rYtBODsVLd3EPh-TAWovGGAfUidUZE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

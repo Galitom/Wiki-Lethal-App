@@ -9,10 +9,10 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/menu_home" />
 
-        <item
-            android:id="@+id/nav_game"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_game" />
+<!--        <item-->
+<!--            android:id="@+id/nav_game"-->
+<!--            android:icon="@drawable/ic_menu_gallery"-->
+<!--            android:title="@string/menu_game" />-->
         <item
             android:id="@+id/nav_moons"
             android:icon="@drawable/ic_menu_gallery"

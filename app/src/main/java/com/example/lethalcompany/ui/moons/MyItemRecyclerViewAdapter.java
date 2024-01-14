@@ -65,6 +65,5 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
             mIdView = binding.itemNumber;
 
         }
-
     }
 }

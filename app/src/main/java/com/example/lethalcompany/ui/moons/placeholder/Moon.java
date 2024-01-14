@@ -6,6 +6,7 @@ public class Moon implements Serializable {
 
     private Long id;
     private double cost;
+    private String foto;
     private String defaultLayout;
     private String difficulty;
     private int maxScrap;
@@ -14,7 +15,7 @@ public class Moon implements Serializable {
     private String risk;
     private String weather;
 
-    public Moon(Long id, double cost, String defaultLayout, String difficulty, int maxScrap, int minScrap, String name, String risk, String weather) {
+    public Moon(Long id, double cost, String defaultLayout, String difficulty, int maxScrap, int minScrap, String name, String risk, String weather, String foto) {
         this.id = id;
         this.cost = cost;
         this.defaultLayout = defaultLayout;
@@ -24,6 +25,7 @@ public class Moon implements Serializable {
         this.name = name;
         this.risk = risk;
         this.weather = weather;
+        this.foto = foto;
     }
 
     public Moon(){}
@@ -100,18 +102,11 @@ public class Moon implements Serializable {
         this.weather = weather;
     }
 
-    @Override
-    public String toString() {
-        return "Moon{" +
-                "id=" + id +
-                ", cost=" + cost +
-                ", defaultLayout='" + defaultLayout + '\'' +
-                ", difficulty='" + difficulty + '\'' +
-                ", maxScrap=" + maxScrap +
-                ", minScrap=" + minScrap +
-                ", name='" + name + '\'' +
-                ", risk='" + risk + '\'' +
-                ", weather='" + weather + '\'' +
-                '}';
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 }

@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import com.example.lethalcompany.R;
 import com.example.lethalcompany.ui.moons.placeholder.Moon;
+import com.squareup.picasso.Picasso;
+
+import org.w3c.dom.Text;
 
 public class MoonDettaglio extends AppCompatActivity {
 
@@ -29,10 +32,30 @@ public class MoonDettaglio extends AppCompatActivity {
         TextView risk = findViewById(R.id.moonRisk);
         risk.setText(moon.getRisk());
 
+        TextView layout = findViewById(R.id.moonLayout);
+        layout.setText(moon.getDefaultLayout());
+
+        TextView difficulty = findViewById(R.id.moonDifficolty);
+        difficulty.setText(moon.getDifficulty());
+
+//        TextView minScrap = findViewById(R.id.moonMin);
+//        minScrap.setText(moon.getMinScrap());
+//
+//        TextView maxScrap = findViewById(R.id.moonMax);
+//        maxScrap.setText(moon.getMaxScrap());
+
+//        TextView weather = findViewById(R.id.moonWeather);
+//        weather.setText(moon.getWeather());
+
+        ImageView map = findViewById(R.id.moonMap);
+        Picasso.get().load(moon.getFoto()).into(map);
+
         Button btn1 = findViewById(R.id.moonBack);
         btn1.setOnClickListener(v -> {
             finish();
         });
+
+
 
 //        ImageView foto = findViewById(R.id.moonImage);
 //        foto.setImageURI(moon.getFoto());

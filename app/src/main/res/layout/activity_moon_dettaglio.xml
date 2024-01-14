@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintBottom_toTopOf="@+id/moonMap"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +28,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/moonMap"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -72,13 +72,98 @@
         tools:layout_editor_absoluteX="309dp" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/moonMap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="94dp"
-        tools:srcCompat="@tools:sample/avatars"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="92dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/moonTitoloLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="55dp"
+        android:text="Default Layout"
+        app:layout_constraintBottom_toBottomOf="@+id/moonLayout"
+        app:layout_constraintTop_toBottomOf="@+id/moonCosto"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="29dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/moonLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="392dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/moonTitoloDifficolty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Difficolty"
+        tools:layout_editor_absoluteX="311dp"
+        tools:layout_editor_absoluteY="334dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/moonDifficolty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="311dp"
+        tools:layout_editor_absoluteY="392dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/moonTitoloScrap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scrap"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="446dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/moonMin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="491dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/moonMax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="95dp"
+        tools:layout_editor_absoluteY="491dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/moonTitoloWeather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weather"
+        tools:layout_editor_absoluteX="309dp"
+        tools:layout_editor_absoluteY="443dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/moonWeather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="306dp"
+        tools:layout_editor_absoluteY="490dp"
         tools:ignore="MissingConstraints" />
 
 

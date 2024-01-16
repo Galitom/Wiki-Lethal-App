@@ -17,7 +17,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/moonMap"
-        app:layout_constraintVertical_bias="0.105"
+        app:layout_constraintVertical_bias="0.941"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -172,8 +172,8 @@
 
     <ImageView
         android:id="@+id/moonMap"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
         android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

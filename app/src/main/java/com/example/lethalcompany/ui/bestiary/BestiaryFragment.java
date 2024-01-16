@@ -8,12 +8,20 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.lethalcompany.R;
+import com.example.lethalcompany.ui.bestiary.placeholder.Bestiary;
 import com.example.lethalcompany.ui.bestiary.placeholder.PlaceholderContent;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+
+import org.checkerframework.checker.units.qual.A;
+
+import java.util.ArrayList;
 
 /**
  * A fragment representing a list of Items.
@@ -55,17 +63,31 @@ public class BestiaryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_bestiary_list, container, false);
+        ArrayList<Bestiary> listaBestiary = new ArrayList<>();
 
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
-            }
-            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(PlaceholderContent.ITEMS));
+            recyclerView.setLayoutManager(new LinearLayoutManager(context));
+            MyItemRecyclerViewAdapter adapter = new MyItemRecyclerViewAdapter(listaBestiary);
+            recyclerView.setAdapter(adapter);
+
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+            db.collection("bestiary")
+                    .get()
+                    .addOnCompleteListener(task -> {
+
+                        if(task.isSuccessful()){
+                            for (QueryDocumentSnapshot document : task.getResult()){
+                                listaBestiary.add(document.toObject(Bestiary.class));
+                            }
+                            getActivity().runOnUiThread(adapter::notifyDataSetChanged);
+                        }else{
+                            Log.w("fetch_bestiary","Error getting doc", task.getException());
+                        }
+                    });
         }
         return view;
     }

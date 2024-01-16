@@ -2,11 +2,13 @@ package com.example.lethalcompany.ui.bestiary;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.lethalcompany.ui.bestiary.placeholder.Bestiary;
 import com.example.lethalcompany.ui.bestiary.placeholder.PlaceholderContent.PlaceholderItem;
 import com.example.lethalcompany.databinding.FragmentBestiaryBinding;
 
@@ -18,9 +20,9 @@ import java.util.List;
  */
 public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder> {
 
-    private final List<PlaceholderItem> mValues;
+    private final List<Bestiary> mValues;
 
-    public MyItemRecyclerViewAdapter(List<PlaceholderItem> items) {
+    public MyItemRecyclerViewAdapter(List<Bestiary> items) {
         mValues = items;
     }
 
@@ -34,8 +36,13 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mIdView.setText(mValues.get(position).getName().toString());
+//        holder.mIdView.setOnClickListener(v -> {
+//            Bestiary bestiary = mValues.get(position);
+//            Intent intent = new Intent(holder.mIdView.getContext(),BestiaryDettaglio.class);
+//            intent.putExtra("bestiary",bestiary);
+//            holder.mIdView.getContext().startActivity(intent);
+//        });
     }
 
     @Override
@@ -45,18 +52,11 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView mIdView;
-        public final TextView mContentView;
-        public PlaceholderItem mItem;
+        public Bestiary mItem;
 
         public ViewHolder(FragmentBestiaryBinding binding) {
             super(binding.getRoot());
             mIdView = binding.itemNumber;
-            mContentView = binding.content;
-        }
-
-        @Override
-        public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
         }
     }
 }

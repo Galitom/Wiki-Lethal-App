@@ -37,13 +37,13 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
         holder.mIdView.setText(mValues.get(position).getName().toString());
-//        holder.mIdView.setOnClickListener(v -> {
-//            StoreItem storeItem = mValues.get(position);
-//            Intent intent = new Intent(holder.mIdView.getContext(),StoreItemDettaglio.class);
-//            intent.putExtra("storeItem", storeItem);
-//
-//            holder.mIdView.getContext().startActivity(intent);
-//        });
+        holder.mIdView.setOnClickListener(v -> {
+            StoreItem storeItem = mValues.get(position);
+            Intent intent = new Intent(holder.mIdView.getContext(),StoreDettaglioActivity.class);
+            intent.putExtra("storeItem", storeItem);
+
+            holder.mIdView.getContext().startActivity(intent);
+        });
     }
 
     @Override

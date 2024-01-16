@@ -13,6 +13,12 @@
         android:theme="@style/Theme.LethalCompany"
         tools:targetApi="31">
         <activity
+            android:name=".ui.store.StoreDettaglioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.bestiary.BestiaryDettaglioActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.moons.MoonDettaglio"
             android:exported="false" />
         <activity

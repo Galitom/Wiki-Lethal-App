@@ -4,13 +4,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.lethalcompany.R;
 import com.example.lethalcompany.databinding.FragmentHomeBinding;
+import com.squareup.picasso.Picasso;
 
 public class HomeFragment extends Fragment {
 
@@ -24,8 +27,12 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        ImageView foto = binding.fotoPri;
+        Picasso.get().load("https://static.wikia.nocookie.net/lethalcompanyzeekerss/images/e/e6/Site-logo.png/revision/latest?cb=20231118203414").into(foto);
+
+        TextView desc = binding.textHome;
+
+        homeViewModel.getText().observe(getViewLifecycleOwner(), desc::setText);
         return root;
     }
 

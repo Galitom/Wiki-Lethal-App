@@ -8,12 +8,21 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.lethalcompany.R;
+import com.example.lethalcompany.ui.store.MyItemRecyclerViewAdapter;
 import com.example.lethalcompany.ui.store.placeholder.PlaceholderContent;
+import com.example.lethalcompany.ui.store.placeholder.StoreItem;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+
+import org.checkerframework.checker.units.qual.A;
+
+import java.util.ArrayList;
 
 /**
  * A fragment representing a list of Items.
@@ -55,17 +64,31 @@ public class StoreFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_store_list, container, false);
+        ArrayList<StoreItem> listaStoreItem = new ArrayList<>();
 
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
-            }
-            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(PlaceholderContent.ITEMS));
+            recyclerView.setLayoutManager(new LinearLayoutManager(context));
+            MyItemRecyclerViewAdapter adapter = new MyItemRecyclerViewAdapter(listaStoreItem);
+            recyclerView.setAdapter(adapter);
+
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            db.collection("Store")
+                    .get()
+                    .addOnCompleteListener(task -> {
+
+                        if(task.isSuccessful()){
+                            for (QueryDocumentSnapshot document : task.getResult()){
+                                listaStoreItem.add(document.toObject(StoreItem.class));
+                            }
+                            getActivity().runOnUiThread(adapter::notifyDataSetChanged);
+                        }else{
+                            Log.w("fetch_storeItem","Error getting documents.", task.getException());
+                        }
+
+                    });
         }
         return view;
     }

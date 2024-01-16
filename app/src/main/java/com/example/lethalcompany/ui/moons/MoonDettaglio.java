@@ -24,8 +24,7 @@ public class MoonDettaglio extends AppCompatActivity {
         setContentView(R.layout.activity_moon_dettaglio);
 
         Moon moon = getIntent().getSerializableExtra("moon", Moon.class);
-
-
+        
         TextView titolo = findViewById(R.id.moonTitolo);
         titolo.setText(moon.getName());
 
